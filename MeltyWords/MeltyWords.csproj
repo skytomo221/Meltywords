@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\LibNMeCab.IpaDicBin.0.10.0\build\LibNMeCab.IpaDicBin.props" Condition="Exists('..\packages\LibNMeCab.IpaDicBin.0.10.0\build\LibNMeCab.IpaDicBin.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -8,10 +9,13 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>MeltyWords</RootNamespace>
     <AssemblyName>MeltyWords</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,9 +37,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LibNMeCab, Version=0.0.7.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\LibNMeCab.dll</HintPath>
+    <Reference Include="LibNMeCab, Version=0.10.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LibNMeCab.0.10.0\lib\netstandard2.0\LibNMeCab.dll</HintPath>
+    </Reference>
+    <Reference Include="LibNMeCab.IpaDicBin, Version=0.10.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LibNMeCab.IpaDicBin.0.10.0\lib\netstandard2.0\LibNMeCab.IpaDicBin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -80,7 +86,15 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="IpaDic\AUTHORS" />
+    <None Include="IpaDic\char.bin" />
+    <None Include="IpaDic\COPYING" />
+    <None Include="IpaDic\matrix.bin" />
+    <None Include="IpaDic\sys.dic" />
+    <None Include="IpaDic\unk.dic" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -95,4 +109,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>このプロジェクトは、このコンピューター上にない NuGet パッケージを参照しています。それらのパッケージをダウンロードするには、[NuGet パッケージの復元] を使用します。詳細については、http://go.microsoft.com/fwlink/?LinkID=322105 を参照してください。見つからないファイルは {0} です。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\LibNMeCab.IpaDicBin.0.10.0\build\LibNMeCab.IpaDicBin.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\LibNMeCab.IpaDicBin.0.10.0\build\LibNMeCab.IpaDicBin.props'))" />
+    <Error Condition="!Exists('..\packages\LibNMeCab.IpaDicBin.0.10.0\build\LibNMeCab.IpaDicBin.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\LibNMeCab.IpaDicBin.0.10.0\build\LibNMeCab.IpaDicBin.targets'))" />
+  </Target>
+  <Import Project="..\packages\LibNMeCab.IpaDicBin.0.10.0\build\LibNMeCab.IpaDicBin.targets" Condition="Exists('..\packages\LibNMeCab.IpaDicBin.0.10.0\build\LibNMeCab.IpaDicBin.targets')" />
 </Project>

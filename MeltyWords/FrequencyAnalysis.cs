@@ -1,4 +1,5 @@
 ﻿using NMeCab;
+using NMeCab.Specialized;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -84,24 +85,23 @@ namespace MeltyWords
         {
             get
             {
-                var mecab = MeCabTagger.Create();
-                mecab.Partial = true;
-                var node = mecab.ParseToNode(Text);
-                var dictionary = new Dictionary<string, int>();
-                node = node.Next;
-                while (node != null)
+                using (var mecab = MeCabIpaDicTagger.Create())
                 {
-                    if (dictionary.ContainsKey(node.Surface))
+                    var nodes = mecab.Parse(Text);
+                    var dictionary = new Dictionary<string, int>();
+                    foreach (var node in nodes)
                     {
-                        dictionary[node.Surface]++;
+                        if (dictionary.ContainsKey(node.Surface))
+                        {
+                            dictionary[node.Surface]++;
+                        }
+                        else
+                        {
+                            dictionary.Add(node.Surface, 1);
+                        }
                     }
-                    else
-                    {
-                        dictionary.Add(node.Surface, 1);
-                    }
-                    node = node.Next;
+                    return dictionary;
                 }
-                return dictionary;
             }
         }
     }

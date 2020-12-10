@@ -259,3 +259,9 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+
+# IpaDic binary data
+MeltyWords/IpaDic/unk.dic
+MeltyWords/IpaDic/sys.dic
+MeltyWords/IpaDic/matrix.bin
+MeltyWords/IpaDic/char.bin

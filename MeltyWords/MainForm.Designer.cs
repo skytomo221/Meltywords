@@ -35,6 +35,8 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.ToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.MenuStrip = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,8 +49,6 @@
             this.DataGridView = new System.Windows.Forms.DataGridView();
             this.Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.SplitContainer = new System.Windows.Forms.SplitContainer();
-            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
-            this.ToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.StatusStrip.SuspendLayout();
             this.MenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
@@ -66,11 +66,25 @@
             this.StatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripProgressBar1,
             this.ToolStripStatusLabel});
-            this.StatusStrip.Location = new System.Drawing.Point(0, 422);
+            this.StatusStrip.Location = new System.Drawing.Point(0, 837);
             this.StatusStrip.Name = "StatusStrip";
-            this.StatusStrip.Size = new System.Drawing.Size(800, 28);
+            this.StatusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
+            this.StatusStrip.Size = new System.Drawing.Size(1584, 24);
             this.StatusStrip.TabIndex = 0;
             this.StatusStrip.Text = "statusStrip1";
+            // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(75, 18);
+            this.toolStripProgressBar1.Value = 100;
+            // 
+            // ToolStripStatusLabel
+            // 
+            this.ToolStripStatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ToolStripStatusLabel.Name = "ToolStripStatusLabel";
+            this.ToolStripStatusLabel.Size = new System.Drawing.Size(135, 19);
+            this.ToolStripStatusLabel.Text = "ファイルを読み込んで下さい";
             // 
             // MenuStrip
             // 
@@ -81,7 +95,8 @@
             this.解析AToolStripMenuItem});
             this.MenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip.Name = "MenuStrip";
-            this.MenuStrip.Size = new System.Drawing.Size(800, 31);
+            this.MenuStrip.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.MenuStrip.Size = new System.Drawing.Size(1584, 24);
             this.MenuStrip.TabIndex = 1;
             this.MenuStrip.Text = "menuStrip1";
             // 
@@ -91,7 +106,7 @@
             this.OpenToolStripMenuItem});
             this.FileToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
-            this.FileToolStripMenuItem.Size = new System.Drawing.Size(105, 27);
+            this.FileToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.FileToolStripMenuItem.Text = "ファイル(&F)";
             // 
             // OpenToolStripMenuItem
@@ -99,7 +114,7 @@
             this.OpenToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.OpenToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
-            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(246, 28);
+            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.OpenToolStripMenuItem.Text = "ファイルを読み込む(&O)";
             this.OpenToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
@@ -112,34 +127,34 @@
             this.RemovePatternToolStripMenuItem});
             this.解析AToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.解析AToolStripMenuItem.Name = "解析AToolStripMenuItem";
-            this.解析AToolStripMenuItem.Size = new System.Drawing.Size(76, 27);
+            this.解析AToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.解析AToolStripMenuItem.Text = "解析(&A)";
             // 
             // CharacterFrequencyAnalysisToolStripMenuItem
             // 
             this.CharacterFrequencyAnalysisToolStripMenuItem.Name = "CharacterFrequencyAnalysisToolStripMenuItem";
-            this.CharacterFrequencyAnalysisToolStripMenuItem.Size = new System.Drawing.Size(191, 28);
+            this.CharacterFrequencyAnalysisToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.CharacterFrequencyAnalysisToolStripMenuItem.Text = "文字頻度分析";
             this.CharacterFrequencyAnalysisToolStripMenuItem.Click += new System.EventHandler(this.CharacterFrequencyAnalysisToolStripMenuItem_Click);
             // 
             // WordFrequencyAnalysisToolStripMenuItem
             // 
             this.WordFrequencyAnalysisToolStripMenuItem.Name = "WordFrequencyAnalysisToolStripMenuItem";
-            this.WordFrequencyAnalysisToolStripMenuItem.Size = new System.Drawing.Size(191, 28);
+            this.WordFrequencyAnalysisToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.WordFrequencyAnalysisToolStripMenuItem.Text = "単語頻度分析";
             this.WordFrequencyAnalysisToolStripMenuItem.Click += new System.EventHandler(this.WordFrequencyAnalysisToolStripMenuItem_Click);
             // 
             // JapaneseFrequencyAnalysisToolStripMenuItem
             // 
             this.JapaneseFrequencyAnalysisToolStripMenuItem.Name = "JapaneseFrequencyAnalysisToolStripMenuItem";
-            this.JapaneseFrequencyAnalysisToolStripMenuItem.Size = new System.Drawing.Size(191, 28);
+            this.JapaneseFrequencyAnalysisToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.JapaneseFrequencyAnalysisToolStripMenuItem.Text = "日本語頻度分析";
             this.JapaneseFrequencyAnalysisToolStripMenuItem.Click += new System.EventHandler(this.JapaneseFrequencyAnalysisToolStripMenuItem_Click);
             // 
             // RemovePatternToolStripMenuItem
             // 
             this.RemovePatternToolStripMenuItem.Name = "RemovePatternToolStripMenuItem";
-            this.RemovePatternToolStripMenuItem.Size = new System.Drawing.Size(191, 28);
+            this.RemovePatternToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.RemovePatternToolStripMenuItem.Text = "除外設定";
             // 
             // OpenFileDialog
@@ -172,6 +187,7 @@
             this.DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DataGridView.EnableHeadersVisualStyles = false;
             this.DataGridView.Location = new System.Drawing.Point(0, 0);
+            this.DataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DataGridView.Name = "DataGridView";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -182,7 +198,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DataGridView.RowTemplate.Height = 24;
-            this.DataGridView.Size = new System.Drawing.Size(266, 391);
+            this.DataGridView.Size = new System.Drawing.Size(526, 813);
             this.DataGridView.TabIndex = 0;
             // 
             // Chart
@@ -224,8 +240,9 @@
             legend1.TitleSeparatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Chart.Legends.Add(legend1);
             this.Chart.Location = new System.Drawing.Point(0, 0);
+            this.Chart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Chart.Name = "Chart";
-            this.Chart.Size = new System.Drawing.Size(530, 391);
+            this.Chart.Size = new System.Drawing.Size(1055, 813);
             this.Chart.TabIndex = 1;
             this.Chart.Text = "chart1";
             title1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -238,7 +255,8 @@
             // SplitContainer
             // 
             this.SplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SplitContainer.Location = new System.Drawing.Point(0, 31);
+            this.SplitContainer.Location = new System.Drawing.Point(0, 24);
+            this.SplitContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SplitContainer.Name = "SplitContainer";
             // 
             // SplitContainer.Panel1
@@ -248,33 +266,22 @@
             // SplitContainer.Panel2
             // 
             this.SplitContainer.Panel2.Controls.Add(this.Chart);
-            this.SplitContainer.Size = new System.Drawing.Size(800, 391);
-            this.SplitContainer.SplitterDistance = 266;
+            this.SplitContainer.Size = new System.Drawing.Size(1584, 813);
+            this.SplitContainer.SplitterDistance = 526;
+            this.SplitContainer.SplitterWidth = 3;
             this.SplitContainer.TabIndex = 3;
-            // 
-            // toolStripProgressBar1
-            // 
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 22);
-            this.toolStripProgressBar1.Value = 100;
-            // 
-            // ToolStripStatusLabel
-            // 
-            this.ToolStripStatusLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ToolStripStatusLabel.Name = "ToolStripStatusLabel";
-            this.ToolStripStatusLabel.Size = new System.Drawing.Size(205, 23);
-            this.ToolStripStatusLabel.Text = "ファイルを読み込んで下さい";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1584, 861);
             this.Controls.Add(this.SplitContainer);
             this.Controls.Add(this.StatusStrip);
             this.Controls.Add(this.MenuStrip);
             this.MainMenuStrip = this.MenuStrip;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainForm";
             this.Text = "Meltywords";
             this.StatusStrip.ResumeLayout(false);
